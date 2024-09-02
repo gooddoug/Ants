@@ -6,13 +6,14 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 class GameScene: SKScene {
     
     
     fileprivate var label : SKLabelNode?
     fileprivate var spinnyNode : SKShapeNode?
-    fileprivate var antNode: SKSpriteNode?
+    fileprivate var antNodes: [AntNode] = []
     fileprivate var antFrames: [SKTexture] = []
     fileprivate var bugNode: SKSpriteNode?
     
@@ -46,11 +47,7 @@ class GameScene: SKScene {
         let cols = 4
         let spriteSheet = SpriteSheet(texture: SKTexture(imageNamed: "AntSpriteSheet"), rows: rows, columns: cols)
         antFrames = spriteSheet.frames
-        self.antNode = SKSpriteNode(texture: antFrames.first, size: CGSize(width: 64, height: 64))
-        if let antNode {
-            let frameAnimation = SKAction.animate(with: antFrames, timePerFrame: 0.25)
-            antNode.run(SKAction.repeatForever(frameAnimation), withKey: "antWalkAnimation")
-        }
+        
         // create bug
         //bugNode = SKSpriteNode(texture: SKTexture(imageNamed: "Bug"), size: CGSize(width: 64, height: 64))
         //bugNode = SKSpriteNode(texture: SKTexture(imageNamed: "AntSpriteSheet"))
@@ -69,17 +66,24 @@ class GameScene: SKScene {
         self.setUpScene()
     }
 
-    func makeSpinny(at pos: CGPoint, color: SKColor) {
+    func makeAnt(at pos: CGPoint, color: SKColor) {
         if let spinny = self.spinnyNode?.copy() as! SKShapeNode? {
             spinny.position = pos
             spinny.strokeColor = color
             self.addChild(spinny)
         }
         
-        if let ant = antNode?.copy() as? SKSpriteNode {
-            ant.position = pos
-            self.addChild(ant)
-        }
+        let antModel = AntModel(position: .zero, vector: CGPoint(x: 0.85, y: 0.85))
+        let antNode = AntNode(antModel: antModel, antFrames: antFrames)
+        antNode.antModel.position = pos
+        antNode.position = pos
+        let rotation = CGFloat(GKRandomSource.sharedRandom().nextUniform() * 2 * .pi)
+        antNode.antModel.rotate(by: rotation)
+        antNode.zRotation = antNode.antModel.rotation
+        self.addChild(antNode)
+        let frameAnimation = SKAction.animate(with: antFrames, timePerFrame: 0.25)
+        antNode.run(SKAction.repeatForever(frameAnimation), withKey: "antWalkAnimation")
+        antNodes.append(antNode)
         
         if let bug = bugNode?.copy() as? SKSpriteNode {
             bug.position = pos
@@ -89,6 +93,9 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        for antNode in antNodes {
+            antNode.step()
+        }
     }
 }
 
@@ -102,25 +109,25 @@ extension GameScene {
         }
         
         for t in touches {
-            self.makeSpinny(at: t.location(in: self), color: SKColor.green)
+            self.makeAnt(at: t.location(in: self), color: SKColor.green)
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
-            self.makeSpinny(at: t.location(in: self), color: SKColor.blue)
+            self.makeAnt(at: t.location(in: self), color: SKColor.blue)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
-            self.makeSpinny(at: t.location(in: self), color: SKColor.red)
+            self.makeAnt(at: t.location(in: self), color: SKColor.red)
         }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
-            self.makeSpinny(at: t.location(in: self), color: SKColor.red)
+            self.makeAnt(at: t.location(in: self), color: SKColor.red)
         }
     }
     
@@ -136,16 +143,16 @@ extension GameScene {
         if let label = self.label {
             label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
         }
-        self.makeSpinny(at: event.location(in: self), color: SKColor.green)
+        self.makeAnt(at: event.location(in: self), color: SKColor.green)
     }
     
-    override func mouseDragged(with event: NSEvent) {
-        self.makeSpinny(at: event.location(in: self), color: SKColor.blue)
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        self.makeSpinny(at: event.location(in: self), color: SKColor.red)
-    }
+//    override func mouseDragged(with event: NSEvent) {
+//        self.makeSpinny(at: event.location(in: self), color: SKColor.blue)
+//    }
+//    
+//    override func mouseUp(with event: NSEvent) {
+//        self.makeSpinny(at: event.location(in: self), color: SKColor.red)
+//    }
 
 }
 #endif

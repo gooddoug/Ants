@@ -9,27 +9,83 @@ import XCTest
 
 final class AntsTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testSimpleVector() throws {
+        var antModel = AntModel(position: CGPoint(x: 0, y: 0), vector: CGPoint(x: 0.24, y: 0.24))
+        print(antModel.rotation)
+        XCTAssertTrue(antModel.rotation > 0)
+        antModel = AntModel(position: CGPoint(x: 0, y: 0), vector: CGPoint(x: -0.24, y: -0.24))
+        print(antModel.rotation)
+        XCTAssertTrue(antModel.rotation < 0)
+        antModel = AntModel(position: CGPoint(x: 0, y: 0), vector: CGPoint(x: 0, y: 1))
+        print(antModel.rotation)
+        XCTAssertTrue(antModel.rotation == 0)
+        antModel = AntModel(position: CGPoint(x: 0, y: 0), vector: CGPoint(x: 0, y: -1))
+        print(antModel.rotation)
+        XCTAssertTrue(antModel.rotation == .pi)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testVectorSpeed() {
+        var antModel = AntModel(position: CGPoint(x: 0, y: 0), vector: CGPoint(x: 0, y: 1))
+        print(antModel.speed)
+        XCTAssertTrue(antModel.rotation == 0)
+        XCTAssertTrue(antModel.speed == 1)
+        antModel = AntModel(position: CGPoint(x: 0, y: 0), vector: CGPoint(x: 0, y: -1))
+        print(antModel.speed)
+        XCTAssertTrue(antModel.rotation == .pi)
+        XCTAssertTrue(antModel.speed == 1)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testVectorRotateBy() {
+        var antModel = AntModel(position: .zero, vector: CGPoint(x: 0.85, y: 0.85))
+        var currentSpeed = antModel.speed
+        var currentRotation = antModel.rotation
+        antModel.rotate(by: 1.57)
+        XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        XCTAssertTrue(antModel.speed == currentSpeed)
+        
+        antModel = AntModel(position: .zero, vector: CGPoint(x: -0.85, y: -0.85))
+        currentSpeed = antModel.speed
+        currentRotation = antModel.rotation
+        antModel.rotate(by: 1.57)
+        XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        XCTAssertTrue(antModel.speed == currentSpeed)
+        
+        antModel = AntModel(position: .zero, vector: CGPoint(x: 0, y: -1))
+        currentSpeed = antModel.speed
+        currentRotation = antModel.rotation
+        antModel.rotate(by: 1.57)
+        XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        XCTAssertTrue(antModel.speed == currentSpeed)
+        
+        antModel = AntModel(position: .zero, vector: CGPoint(x: 0, y: 1))
+        currentSpeed = antModel.speed
+        currentRotation = antModel.rotation
+        antModel.rotate(by: 1.57)
+        XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        XCTAssertTrue(antModel.speed == currentSpeed)
+        
+        antModel = AntModel(position: .zero, vector: CGPoint(x: 1, y: 0))
+        currentSpeed = antModel.speed
+        currentRotation = antModel.rotation
+        antModel.rotate(by: 1.57)
+        XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        XCTAssertTrue(antModel.speed == currentSpeed)
+        
+        antModel = AntModel(position: .zero, vector: CGPoint(x: -1, y: 0))
+        currentSpeed = antModel.speed
+        currentRotation = antModel.rotation
+        antModel.rotate(by: 1.57)
+        XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        XCTAssertTrue(antModel.speed == currentSpeed)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testMove() {
+        var antModel = AntModel(position: .zero, vector: CGPoint(x: 0.85, y: 0.85))
+        var originalPostion = CGPoint.zero
+        antModel.move()
+        XCTAssertEqual(antModel.position, antModel.vector)
+        antModel = AntModel(position: .zero, vector: CGPoint(x: 1.0, y: 0.0))
+        antModel.move(fraction: 0.5)
+        XCTAssertEqual(antModel.position.x, 0.5)
     }
-
 }

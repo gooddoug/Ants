@@ -33,7 +33,25 @@
 		EF90E2512C85293A00F0A6FA /* SpriteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */; };
 		EF90E2522C85293A00F0A6FA /* SpriteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */; };
 		EF90E2532C85293A00F0A6FA /* SpriteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */; };
+		EF90E2562C85769300F0A6FA /* AntModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2552C85769300F0A6FA /* AntModel.swift */; };
+		EF90E2572C85769300F0A6FA /* AntModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2552C85769300F0A6FA /* AntModel.swift */; };
+		EF90E2582C85769300F0A6FA /* AntModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2552C85769300F0A6FA /* AntModel.swift */; };
+		EF90E2602C85781B00F0A6FA /* AntsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E25F2C85781B00F0A6FA /* AntsTests.swift */; };
+		EF90E2662C85786600F0A6FA /* AntModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2552C85769300F0A6FA /* AntModel.swift */; };
+		EF90E2692C8586AF00F0A6FA /* AntSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2682C8586AF00F0A6FA /* AntSprite.swift */; };
+		EF90E26A2C8586AF00F0A6FA /* AntSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2682C8586AF00F0A6FA /* AntSprite.swift */; };
+		EF90E26B2C8586AF00F0A6FA /* AntSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2682C8586AF00F0A6FA /* AntSprite.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF90E2612C85781B00F0A6FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF90E2012C851D3A00F0A6FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF90E22E2C851D3C00F0A6FA;
+			remoteInfo = "Ants macOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EF90E2062C851D3A00F0A6FA /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -56,6 +74,10 @@
 		EF90E2362C851D3C00F0A6FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF90E2382C851D3C00F0A6FA /* Ants_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ants_macOS.entitlements; sourceTree = "<group>"; };
 		EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteSheet.swift; sourceTree = "<group>"; };
+		EF90E2552C85769300F0A6FA /* AntModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntModel.swift; sourceTree = "<group>"; };
+		EF90E25D2C85781B00F0A6FA /* AntsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF90E25F2C85781B00F0A6FA /* AntsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntsTests.swift; sourceTree = "<group>"; };
+		EF90E2682C8586AF00F0A6FA /* AntSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntSprite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +102,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF90E25A2C85781B00F0A6FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,6 +119,7 @@
 				EF90E2102C851D3C00F0A6FA /* Ants iOS */,
 				EF90E2202C851D3C00F0A6FA /* Ants tvOS */,
 				EF90E2302C851D3C00F0A6FA /* Ants macOS */,
+				EF90E25E2C85781B00F0A6FA /* AntsTests */,
 				EF90E20F2C851D3C00F0A6FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +130,8 @@
 				EF90E2062C851D3A00F0A6FA /* Actions.sks */,
 				EF90E2072C851D3A00F0A6FA /* GameScene.sks */,
 				EF90E2082C851D3A00F0A6FA /* GameScene.swift */,
+				EF90E2672C85867400F0A6FA /* ActorNodes */,
+				EF90E2542C85767F00F0A6FA /* ActorModels */,
 				EF90E2092C851D3C00F0A6FA /* Assets.xcassets */,
 				EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */,
 			);
@@ -112,6 +144,7 @@
 				EF90E20E2C851D3C00F0A6FA /* Ants.app */,
 				EF90E21F2C851D3C00F0A6FA /* Ants.app */,
 				EF90E22F2C851D3C00F0A6FA /* Ants.app */,
+				EF90E25D2C85781B00F0A6FA /* AntsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +180,30 @@
 				EF90E2382C851D3C00F0A6FA /* Ants_macOS.entitlements */,
 			);
 			path = "Ants macOS";
+			sourceTree = "<group>";
+		};
+		EF90E2542C85767F00F0A6FA /* ActorModels */ = {
+			isa = PBXGroup;
+			children = (
+				EF90E2552C85769300F0A6FA /* AntModel.swift */,
+			);
+			path = ActorModels;
+			sourceTree = "<group>";
+		};
+		EF90E25E2C85781B00F0A6FA /* AntsTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF90E25F2C85781B00F0A6FA /* AntsTests.swift */,
+			);
+			path = AntsTests;
+			sourceTree = "<group>";
+		};
+		EF90E2672C85867400F0A6FA /* ActorNodes */ = {
+			isa = PBXGroup;
+			children = (
+				EF90E2682C8586AF00F0A6FA /* AntSprite.swift */,
+			);
+			path = ActorNodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +260,24 @@
 			productReference = EF90E22F2C851D3C00F0A6FA /* Ants.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EF90E25C2C85781B00F0A6FA /* AntsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF90E2632C85781B00F0A6FA /* Build configuration list for PBXNativeTarget "AntsTests" */;
+			buildPhases = (
+				EF90E2592C85781B00F0A6FA /* Sources */,
+				EF90E25A2C85781B00F0A6FA /* Frameworks */,
+				EF90E25B2C85781B00F0A6FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF90E2622C85781B00F0A6FA /* PBXTargetDependency */,
+			);
+			name = AntsTests;
+			productName = AntsTests;
+			productReference = EF90E25D2C85781B00F0A6FA /* AntsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,6 +297,10 @@
 					EF90E22E2C851D3C00F0A6FA = {
 						CreatedOnToolsVersion = 15.4;
 					};
+					EF90E25C2C85781B00F0A6FA = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = EF90E22E2C851D3C00F0A6FA;
+					};
 				};
 			};
 			buildConfigurationList = EF90E2042C851D3A00F0A6FA /* Build configuration list for PBXProject "Ants" */;
@@ -240,6 +319,7 @@
 				EF90E20D2C851D3C00F0A6FA /* Ants iOS */,
 				EF90E21E2C851D3C00F0A6FA /* Ants tvOS */,
 				EF90E22E2C851D3C00F0A6FA /* Ants macOS */,
+				EF90E25C2C85781B00F0A6FA /* AntsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -280,6 +360,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF90E25B2C85781B00F0A6FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -289,7 +376,9 @@
 			files = (
 				EF90E2512C85293A00F0A6FA /* SpriteSheet.swift in Sources */,
 				EF90E23F2C851D3C00F0A6FA /* GameScene.swift in Sources */,
+				EF90E2692C8586AF00F0A6FA /* AntSprite.swift in Sources */,
 				EF90E2142C851D3C00F0A6FA /* GameViewController.swift in Sources */,
+				EF90E2562C85769300F0A6FA /* AntModel.swift in Sources */,
 				EF90E2122C851D3C00F0A6FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,7 +389,9 @@
 			files = (
 				EF90E2522C85293A00F0A6FA /* SpriteSheet.swift in Sources */,
 				EF90E2402C851D3C00F0A6FA /* GameScene.swift in Sources */,
+				EF90E26A2C8586AF00F0A6FA /* AntSprite.swift in Sources */,
 				EF90E2242C851D3C00F0A6FA /* GameViewController.swift in Sources */,
+				EF90E2572C85769300F0A6FA /* AntModel.swift in Sources */,
 				EF90E2222C851D3C00F0A6FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,12 +402,31 @@
 			files = (
 				EF90E2532C85293A00F0A6FA /* SpriteSheet.swift in Sources */,
 				EF90E2412C851D3C00F0A6FA /* GameScene.swift in Sources */,
+				EF90E26B2C8586AF00F0A6FA /* AntSprite.swift in Sources */,
 				EF90E2342C851D3C00F0A6FA /* GameViewController.swift in Sources */,
+				EF90E2582C85769300F0A6FA /* AntModel.swift in Sources */,
 				EF90E2322C851D3C00F0A6FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF90E2592C85781B00F0A6FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF90E2602C85781B00F0A6FA /* AntsTests.swift in Sources */,
+				EF90E2662C85786600F0A6FA /* AntModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF90E2622C85781B00F0A6FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF90E22E2C851D3C00F0A6FA /* Ants macOS */;
+			targetProxy = EF90E2612C85781B00F0A6FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EF90E2152C851D3C00F0A6FA /* Main.storyboard */ = {
@@ -650,6 +760,50 @@
 			};
 			name = Release;
 		};
+		EF90E2642C85781B00F0A6FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PKS229JK2G;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gooddoug.AntsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ants.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Ants";
+			};
+			name = Debug;
+		};
+		EF90E2652C85781B00F0A6FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PKS229JK2G;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gooddoug.AntsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ants.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Ants";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -685,6 +839,15 @@
 			buildConfigurations = (
 				EF90E24E2C851D3C00F0A6FA /* Debug */,
 				EF90E24F2C851D3C00F0A6FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF90E2632C85781B00F0A6FA /* Build configuration list for PBXNativeTarget "AntsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF90E2642C85781B00F0A6FA /* Debug */,
+				EF90E2652C85781B00F0A6FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
