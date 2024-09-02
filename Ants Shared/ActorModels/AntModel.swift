@@ -44,6 +44,7 @@ struct AntModel {
         vector = newVector
     }
     
+    // TODO: Think about edges and other obstacles and how to handle it, might just stop at an edge
     mutating func move(fraction: CGFloat = 1.0) {
         let currentVectorLength = vector.vectorLength
         let newVectorLength = currentVectorLength * fraction
@@ -60,7 +61,6 @@ struct AntModel {
     var rotationThreshold = nextRotationThreshold()
     var rotationStep = 0
     
-    // smaller numbers are more rotation
     fileprivate let rotationFactor: Float = 0.35
     
     mutating func randomWalkStep(fraction: CGFloat) {

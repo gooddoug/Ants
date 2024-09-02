@@ -15,7 +15,6 @@ class GameScene: SKScene {
     fileprivate var spinnyNode : SKShapeNode?
     fileprivate var antNodes: [AntNode] = []
     fileprivate var antFrames: [SKTexture] = []
-    fileprivate var bugNode: SKSpriteNode?
     
     class func newGameScene() -> GameScene {
         // Load 'GameScene.sks' as an SKScene.
@@ -41,17 +40,6 @@ class GameScene: SKScene {
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        // create ant
-        let rows = 1
-        let cols = 4
-        let spriteSheet = SpriteSheet(texture: SKTexture(imageNamed: "AntSpriteSheet"), rows: rows, columns: cols)
-        antFrames = spriteSheet.frames
-        
-        // create bug
-        //bugNode = SKSpriteNode(texture: SKTexture(imageNamed: "Bug"), size: CGSize(width: 64, height: 64))
-        //bugNode = SKSpriteNode(texture: SKTexture(imageNamed: "AntSpriteSheet"))
-        
         if let spinnyNode = self.spinnyNode {
             spinnyNode.lineWidth = 4.0
             spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
@@ -60,6 +48,9 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
         
+        // create ant frames
+        let spriteSheet = SpriteSheet(texture: SKTexture(imageNamed: "AntSpriteSheet"), rows: 1, columns: 4)
+        antFrames = spriteSheet.frames
     }
     
     override func didMove(to view: SKView) {
@@ -84,11 +75,6 @@ class GameScene: SKScene {
         let frameAnimation = SKAction.animate(with: antFrames, timePerFrame: 0.25)
         antNode.run(SKAction.repeatForever(frameAnimation), withKey: "antWalkAnimation")
         antNodes.append(antNode)
-        
-        if let bug = bugNode?.copy() as? SKSpriteNode {
-            bug.position = pos
-            self.addChild(bug)
-        }
     }
     
     override func update(_ currentTime: TimeInterval) {
