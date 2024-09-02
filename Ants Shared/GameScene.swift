@@ -12,7 +12,9 @@ class GameScene: SKScene {
     
     fileprivate var label : SKLabelNode?
     fileprivate var spinnyNode : SKShapeNode?
-
+    fileprivate var antNode: SKSpriteNode?
+    fileprivate var antFrames: [SKTexture] = []
+    fileprivate var bugNode: SKSpriteNode?
     
     class func newGameScene() -> GameScene {
         // Load 'GameScene.sks' as an SKScene.
@@ -39,6 +41,20 @@ class GameScene: SKScene {
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
         
+        // create ant
+        let rows = 1
+        let cols = 4
+        let spriteSheet = SpriteSheet(texture: SKTexture(imageNamed: "AntSpriteSheet"), rows: rows, columns: cols)
+        antFrames = spriteSheet.frames
+        self.antNode = SKSpriteNode(texture: antFrames.first, size: CGSize(width: 64, height: 64))
+        if let antNode {
+            let frameAnimation = SKAction.animate(with: antFrames, timePerFrame: 0.25)
+            antNode.run(SKAction.repeatForever(frameAnimation), withKey: "antWalkAnimation")
+        }
+        // create bug
+        //bugNode = SKSpriteNode(texture: SKTexture(imageNamed: "Bug"), size: CGSize(width: 64, height: 64))
+        //bugNode = SKSpriteNode(texture: SKTexture(imageNamed: "AntSpriteSheet"))
+        
         if let spinnyNode = self.spinnyNode {
             spinnyNode.lineWidth = 4.0
             spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
@@ -46,6 +62,7 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        
     }
     
     override func didMove(to view: SKView) {
@@ -57,6 +74,16 @@ class GameScene: SKScene {
             spinny.position = pos
             spinny.strokeColor = color
             self.addChild(spinny)
+        }
+        
+        if let ant = antNode?.copy() as? SKSpriteNode {
+            ant.position = pos
+            self.addChild(ant)
+        }
+        
+        if let bug = bugNode?.copy() as? SKSpriteNode {
+            bug.position = pos
+            self.addChild(bug)
         }
     }
     

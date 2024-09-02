@@ -30,6 +30,9 @@
 		EF90E2422C851D3C00F0A6FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF90E2092C851D3C00F0A6FA /* Assets.xcassets */; };
 		EF90E2432C851D3C00F0A6FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF90E2092C851D3C00F0A6FA /* Assets.xcassets */; };
 		EF90E2442C851D3C00F0A6FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF90E2092C851D3C00F0A6FA /* Assets.xcassets */; };
+		EF90E2512C85293A00F0A6FA /* SpriteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */; };
+		EF90E2522C85293A00F0A6FA /* SpriteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */; };
+		EF90E2532C85293A00F0A6FA /* SpriteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,7 @@
 		EF90E2332C851D3C00F0A6FA /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EF90E2362C851D3C00F0A6FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF90E2382C851D3C00F0A6FA /* Ants_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ants_macOS.entitlements; sourceTree = "<group>"; };
+		EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 				EF90E2072C851D3A00F0A6FA /* GameScene.sks */,
 				EF90E2082C851D3A00F0A6FA /* GameScene.swift */,
 				EF90E2092C851D3C00F0A6FA /* Assets.xcassets */,
+				EF90E2502C85293A00F0A6FA /* SpriteSheet.swift */,
 			);
 			path = "Ants Shared";
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF90E2512C85293A00F0A6FA /* SpriteSheet.swift in Sources */,
 				EF90E23F2C851D3C00F0A6FA /* GameScene.swift in Sources */,
 				EF90E2142C851D3C00F0A6FA /* GameViewController.swift in Sources */,
 				EF90E2122C851D3C00F0A6FA /* AppDelegate.swift in Sources */,
@@ -292,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF90E2522C85293A00F0A6FA /* SpriteSheet.swift in Sources */,
 				EF90E2402C851D3C00F0A6FA /* GameScene.swift in Sources */,
 				EF90E2242C851D3C00F0A6FA /* GameViewController.swift in Sources */,
 				EF90E2222C851D3C00F0A6FA /* AppDelegate.swift in Sources */,
@@ -302,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF90E2532C85293A00F0A6FA /* SpriteSheet.swift in Sources */,
 				EF90E2412C851D3C00F0A6FA /* GameScene.swift in Sources */,
 				EF90E2342C851D3C00F0A6FA /* GameViewController.swift in Sources */,
 				EF90E2322C851D3C00F0A6FA /* AppDelegate.swift in Sources */,
