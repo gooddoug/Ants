@@ -103,21 +103,21 @@ class GameScene: SKScene {
 // Touch-based event handling
 extension GameScene {
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
-        
-        for t in touches {
-            self.makeAnt(at: t.location(in: self), color: SKColor.green)
-        }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches {
-            self.makeAnt(at: t.location(in: self), color: SKColor.blue)
-        }
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let label = self.label {
+//            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+//        }
+//        
+//        for t in touches {
+//            self.makeAnt(at: t.location(in: self), color: SKColor.green)
+//        }
+//    }
+//    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for t in touches {
+//            self.makeAnt(at: t.location(in: self), color: SKColor.blue)
+//        }
+//    }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
@@ -125,11 +125,11 @@ extension GameScene {
         }
     }
     
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches {
-            self.makeAnt(at: t.location(in: self), color: SKColor.red)
-        }
-    }
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for t in touches {
+//            self.makeAnt(at: t.location(in: self), color: SKColor.red)
+//        }
+//    }
     
    
 }

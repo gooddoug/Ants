@@ -12,8 +12,6 @@ class AntNode: SKSpriteNode {
     fileprivate var antFrames: [SKTexture] = []
     
     convenience init(antModel: AntModel, antFrames: [SKTexture]) {
-        let texture = SKTexture(imageNamed: "Bug")
-        
         let firstTexture = antFrames.first
         self.init(texture: firstTexture, color: SKColor.clear, size: CGSize(width: 64, height: 64))
         self.antModel = antModel

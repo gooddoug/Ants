@@ -78,6 +78,7 @@
 		EF90E25D2C85781B00F0A6FA /* AntsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF90E25F2C85781B00F0A6FA /* AntsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntsTests.swift; sourceTree = "<group>"; };
 		EF90E2682C8586AF00F0A6FA /* AntSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntSprite.swift; sourceTree = "<group>"; };
+		EF90E26C2C86434E00F0A6FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +116,7 @@
 		EF90E2002C851D3A00F0A6FA = {
 			isa = PBXGroup;
 			children = (
+				EF90E26C2C86434E00F0A6FA /* README.md */,
 				EF90E2052C851D3A00F0A6FA /* Ants Shared */,
 				EF90E2102C851D3C00F0A6FA /* Ants iOS */,
 				EF90E2202C851D3C00F0A6FA /* Ants tvOS */,

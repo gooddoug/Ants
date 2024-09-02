@@ -54,7 +54,12 @@ final class AntsTests: XCTestCase {
         currentSpeed = antModel.speed
         currentRotation = antModel.rotation
         antModel.rotate(by: 1.57)
-        XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        var nextRotation = antModel.rotation
+        if nextRotation > 0 {
+            XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        } else {
+            XCTAssertEqual(antModel.rotation, -1.57, accuracy: 0.01)
+        }
         XCTAssertTrue(antModel.speed == currentSpeed)
         
         antModel = AntModel(position: .zero, vector: CGPoint(x: 0, y: 1))
@@ -68,7 +73,12 @@ final class AntsTests: XCTestCase {
         currentSpeed = antModel.speed
         currentRotation = antModel.rotation
         antModel.rotate(by: 1.57)
-        XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        nextRotation = antModel.rotation
+        if nextRotation > 0 {
+            XCTAssertEqual(antModel.rotation, currentRotation + 1.57, accuracy: 0.01)
+        } else {
+            XCTAssertEqual(nextRotation, -.pi, accuracy: 0.01)
+        }
         XCTAssertTrue(antModel.speed == currentSpeed)
         
         antModel = AntModel(position: .zero, vector: CGPoint(x: -1, y: 0))
@@ -81,7 +91,6 @@ final class AntsTests: XCTestCase {
     
     func testMove() {
         var antModel = AntModel(position: .zero, vector: CGPoint(x: 0.85, y: 0.85))
-        var originalPostion = CGPoint.zero
         antModel.move()
         XCTAssertEqual(antModel.position, antModel.vector)
         antModel = AntModel(position: .zero, vector: CGPoint(x: 1.0, y: 0.0))
