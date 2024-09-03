@@ -16,27 +16,17 @@ class GameScene: SKScene {
     fileprivate var antNodes: [AntNode] = []
     fileprivate var antFrames: [SKTexture] = []
     
-    class func newGameScene() -> GameScene {
-        // Load 'GameScene.sks' as an SKScene.
-        guard let scene = SKScene(fileNamed: "GameScene") as? GameScene else {
-            print("Failed to load GameScene.sks")
-            abort()
-        }
+    class func newGameScene(with size: CGSize) -> GameScene {
+        let scene = GameScene(size: size)
         
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .aspectFill
+        scene.backgroundColor = SKColor.clear
         
         return scene
     }
     
     func setUpScene() {
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
-        
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
@@ -77,11 +67,27 @@ class GameScene: SKScene {
         antNodes.append(antNode)
     }
     
+    var spawnThreshold = 100
+    var spawnTimer = 0
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         for antNode in antNodes {
             antNode.step()
+            if antNode.antModel.antState == .dead {
+                antNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
+                                                  SKAction.fadeOut(withDuration: 0.5),
+                                                  SKAction.removeFromParent()]))
+            }
         }
+        if spawnTimer > spawnThreshold {
+            makeAnt(at: CGPoint(x: 100, y: 100), color: .green)
+            spawnTimer = 0
+        } else {
+            spawnTimer += 1
+        }
+        // remove dead ants
+        antNodes = antNodes.filter({ $0.antModel.antState != .dead })
     }
 }
 

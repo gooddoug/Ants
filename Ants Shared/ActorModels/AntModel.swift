@@ -61,9 +61,26 @@ struct AntModel {
     var rotationThreshold = nextRotationThreshold()
     var rotationStep = 0
     
+    var deathThreshold = 1000
+    var deathStep = 0
+    
+    // introduce a state here? Start with alive or dead
+    enum AntState {
+    case alive, dead
+    }
+    
+    var antState = AntState.alive
+    
     fileprivate let rotationFactor: Float = 0.35
     
     mutating func randomWalkStep(fraction: CGFloat) {
+        // check if we are too old
+        guard deathStep < deathThreshold else {
+            // we are too old, time to die
+            antState = .dead
+            return
+        }
+        deathStep += 1
         // move the direction we were already headed
         move(fraction: fraction)
         // add a random rotation for next step
